@@ -60,7 +60,6 @@ public class Board_share {
     // 조회수 view count의 약자
     // 1-1. ColumnDefault : 조회수 초기값을 0으로 설정하기 위해 사용
     // 1-2. 위의 방식을 사용하지 않을 경우 @Column(columnDefinition = "integer default -1")로 대체 이때 Wrapper class인 integer를 사용하는 이유는 null값이 들어갔을 경우의 에러를 방지하기 위함.
-
     @Column(name = "vcount")
     @ColumnDefault("0")
     private int vcount;
