@@ -201,47 +201,46 @@
                     </tbody>
                 </table>
             </div>
-        <footer>
-            <section>
-                <!--글쓰기 버튼-->
-                <div class="write_btn">
-                    <a id='write-button' href="javascript:void(0);" style="cursor: pointer;">글쓰기</a>
-                </div>
-
-                <!-- 페이징 네비게이션 -->
-                <div class="pagination">
-                    <!-- 첫 페이지로 돌아가기 -->
-                    <a th:if="${startPage < currentPage}"
-                       th:href="@{/boardShare/home(page=${startPage}, search=${search}, sortType=${sortType})}">&lt;&lt;</a>
-
-                    <!-- 이전 페이지로 이동 -->
-                    <a th:if="${currentPage > 0}"
-                       th:href="@{/boardShare/home(page=${currentPage - 1}, search=${search}, sortType=${sortType})}"
-                       th:classappend="${currentPage == 1} ? 'disabled' : ''">&lt;</a>
-
-                    <!-- 페이지 번호 -->
-                    <a th:each="i : ${#numbers.sequence(startPage, endPage)}"
-                       th:classappend="${currentPage == i} ? 'current' : ''"
-                       th:href="@{/boardShare/home(page=${i}, search=${search}, sortType=${sortType})}" th:text="${i + 1}">1</a>
-
-                    <!-- 다음 페이지로 이동 -->
-                    <a th:if="${currentPage < endPage}"
-                       th:href="@{/boardShare/home(page=${currentPage + 1}, search=${search}, sortType=${sortType})}"
-                       th:classappend="${currentPage == totalPages} ? 'disabled' : ''">&gt;</a>
-
-                    <!-- 마지막 페이지로 이동 -->
-                    <a th:if="${endPage > currentPage}"
-                       th:href="@{/boardShare/home(page=${endPage}, search=${search}, sortType=${sortType})}"
-                       th:classappend="${endPage == totalPages} ? 'disabled' : ''">&gt;&gt;</a>
-                </div>
-            </section>
-        </footer>
-
+            <footer>
+                <section>
+                    <!--글쓰기 버튼-->
+                    <div class="write_btn">
+                        <a id='write-button' href="javascript:void(0);" style="cursor: pointer;">글쓰기</a>
+                    </div>
+    
+                    <!-- 페이징 네비게이션 -->
+                    <div class="pagination">
+                        <!-- 첫 페이지로 돌아가기 -->
+                        <a th:if="${startPage < currentPage}"
+                           th:href="@{/boardShare/home(page=${startPage}, search=${search}, sortType=${sortType})}">&lt;&lt;</a>
+    
+                        <!-- 이전 페이지로 이동 -->
+                        <a th:if="${currentPage > 0}"
+                           th:href="@{/boardShare/home(page=${currentPage - 1}, search=${search}, sortType=${sortType})}"
+                           th:classappend="${currentPage == 1} ? 'disabled' : ''">&lt;</a>
+    
+                        <!-- 페이지 번호 -->
+                        <a th:each="i : ${#numbers.sequence(startPage, endPage)}"
+                           th:classappend="${currentPage == i} ? 'current' : ''"
+                           th:href="@{/boardShare/home(page=${i}, search=${search}, sortType=${sortType})}" th:text="${i + 1}">1</a>
+    
+                        <!-- 다음 페이지로 이동 -->
+                        <a th:if="${currentPage < endPage}"
+                           th:href="@{/boardShare/home(page=${currentPage + 1}, search=${search}, sortType=${sortType})}"
+                           th:classappend="${currentPage == totalPages} ? 'disabled' : ''">&gt;</a>
+    
+                        <!-- 마지막 페이지로 이동 -->
+                        <a th:if="${endPage > currentPage}"
+                           th:href="@{/boardShare/home(page=${endPage}, search=${search}, sortType=${sortType})}"
+                           th:classappend="${endPage == totalPages} ? 'disabled' : ''">&gt;&gt;</a>
+                    </div>
+                </section>
+            </footer>
         </div>
     </div>
 </div>
+    
 <script th:inline="javascript">
-
     document.getElementById('write-button').addEventListener('click', function() {
         // 주석구문 타임리프에서 처리 후 null이 아니라면 이 위치에 true가 삽입 됨
         const auth = /*[[${auth != null}]]*/ false;
